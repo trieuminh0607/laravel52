@@ -26,7 +26,7 @@
             @endif
         </td>
         <td class="list_td aligncenter">
-            <a href=""><img src="{!! asset('admin/images/edit.png') !!}" /></a>&nbsp;&nbsp;&nbsp;
+            <a href="{!! url('administration/user/edit', [$user['id']]) !!}"><img src="{!! asset('admin/images/edit.png') !!}" /></a>&nbsp;&nbsp;&nbsp;
             <a href=""><img src="{!! asset('admin/images/delete.png') !!}" /></a>
         </td>
     </tr>

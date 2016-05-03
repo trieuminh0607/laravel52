@@ -40,6 +40,8 @@ Route::group(['middleware' => 'auth'], function (){
         Route::get('/', ['as'=> 'administration/user', 'uses' => 'UserController@indexAction']);
         Route::get('add', ['as'=> 'administration/user/add', 'uses' => 'UserController@viewAddAction']);
         Route::post('add', ['as'=> 'administration/user/add', 'uses' => 'UserController@doAddAction']);
+        Route::get('edit/{id}', ['as'=> 'administration/user/edit', 'uses' => 'UserController@viewEditAction'])->where('id', '[0-9]+');
+        Route::post('edit/{id}', ['as'=> 'administration/user/edit', 'uses' => 'UserController@doEditAction'])->where('id', '[0-9]+');
         Route::get('delete/{id}', ['as'=> 'administration/user/delete', 'uses' => 'UserController@deleteAction'])->where('id', '[0-9]+');
     });
 });

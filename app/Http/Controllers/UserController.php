@@ -13,12 +13,12 @@ class UserController extends Controller
         $users = User::select('id', 'name', 'username', 'email', 'level')->get()->toArray();
         return view ('admin.user.list', array('users' => $users));
     }
-    
+
     public function viewAddAction()
     {
         return view('admin.user.add');
     }
-    
+
     public function doAddAction(UserAddRequest $request)
     {
         $user = new User();
@@ -32,5 +32,16 @@ class UserController extends Controller
             return redirect('administration/user')->with(
                     array('notification' => 'result_msg', 'notification_message' => EVO_USER_ADD_SUCCESS));
         }
+    }
+
+    public function viewEditAction($user_id)
+    {
+        $user = User::findOrFail($user_id)->toArray();
+        return view('admin.user.edit', array('user' => $user));
+    }
+    
+    public function doEditAction($user_id)
+    {
+        
     }
 }
